@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import React from "react";
+import { SafeAreaView, StyleSheet, StatusBar, Platform } from "react-native";
+import BoardingScreen from "./screens/Boarding";
+import SplashScreen from "./screens/SplashScreen";
+import SignIn from "./screens/SignIn";
+import NumberScreen from "./screens/NumberScreen";
+import Verification from "./screens/Verification";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        barStyle="light-content" // Chữ trắng
+        backgroundColor="black" //  Nền đen
+        translucent={true} //  Để nền đen hiển thị rõ ràng
+      />
+      <SignIn />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0, // Tránh notch trên Android
   },
 });
