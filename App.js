@@ -5,6 +5,9 @@ import SplashScreen from "./screens/SplashScreen";
 import SignIn from "./screens/SignIn";
 import NumberScreen from "./screens/NumberScreen";
 import Verification from "./screens/Verification";
+import SelectLocation from "./screens/SelectLocation";
+import LoginScreen from "./screens/LoginScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
@@ -13,7 +16,7 @@ export default function App() {
         backgroundColor="black" //  Nền đen
         translucent={true} //  Để nền đen hiển thị rõ ràng
       />
-      <SignIn />
+      <SelectLocation />
     </SafeAreaView>
   );
 }
