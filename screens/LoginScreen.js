@@ -100,17 +100,14 @@ const LoginScreen = () => {
             <Text style={{ color: "#53B175" }}>Singup</Text>
           </TouchableOpacity>
         </View>
+        <View>
+          {" "}
+          <ImageBackground
+            source={require("../assets/backgroundBlue.png")}
+            style={{ position: "absolute", top: 150 }}
+          />
+        </View>
       </View>
-      <ImageBackground
-        source={require("../assets/backgroundBlue.png")}
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          height: 200, // Đặt chiều cao cố định
-          zIndex: -1,
-        }}
-      />
     </View>
   );
 };

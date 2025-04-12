@@ -141,16 +141,6 @@ const SignUpScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <ImageBackground
-        source={require("../assets/backgroundBlue.png")}
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          height: 200, // Đặt chiều cao cố định
-          zIndex: -1,
-        }}
-      />
     </View>
   );
 };
