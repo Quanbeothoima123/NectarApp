@@ -7,27 +7,38 @@ import {
   FlatList,
   TextInput,
   Dimensions,
+  TouchableOpacity, // Add TouchableOpacity for clickable cards
 } from "react-native";
-
 import groceryData2 from "../data/GroceryData";
-const { width } = Dimensions.get("window");
-const cardWidth = (width - 50) / 2; // Calculate card width (subtracting padding and spacing)
 
-export default function FindProductsScreen() {
+const { width } = Dimensions.get("window");
+const cardWidth = (width - 50) / 2;
+
+export default function FindProductsScreen({ navigation }) {
+  // Add navigation prop
   const renderItem = ({ item }) => (
-    <View
-      style={[
-        styles.card,
-        {
-          backgroundColor: item.background,
-          borderColor: item.borderColor,
-          width: cardWidth,
-        },
-      ]}
+    <TouchableOpacity
+      onPress={() => {
+        // Navigate to ProductsScreen with initial search query "Egg" if the category is "Dairy & Egg"
+        if (item.namegroceris === "Dairy & Eggs") {
+          navigation.navigate("SearchScreen");
+        }
+      }}
     >
-      <Image source={item.image} style={styles.image} resizeMode="contain" />
-      <Text style={styles.categoryName}>{item.namegroceris}</Text>
-    </View>
+      <View
+        style={[
+          styles.card,
+          {
+            backgroundColor: item.background,
+            borderColor: item.borderColor,
+            width: cardWidth,
+          },
+        ]}
+      >
+        <Image source={item.image} style={styles.image} resizeMode="contain" />
+        <Text style={styles.categoryName}>{item.namegroceris}</Text>
+      </View>
+    </TouchableOpacity>
   );
 
   return (
